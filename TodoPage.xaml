@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="MauiApp1.TodoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <!-- Background Image -->
+        <Image
+            Source="background.jpg"
+            Aspect="AspectFill"
+            IsOpaque="True"
+            ZIndex="-1" />
+
+        <!-- Foreground Content -->
+        <StackLayout Padding="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+
+            <!-- Entry for new task -->
+            <Entry
+                x:Name="TaskInputField"
+                Placeholder="Add a task"
+                 TextColor="black"
+                WidthRequest="250"
+                HorizontalOptions="Center"
+                Margin="0,0,0,20" />
+
+            <!-- Add Task Button -->
+            <Button
+                Text="Add Task"
+                Clicked="OnTaskAdded"
+                BackgroundColor="purple"
+                TextColor="White"
+                WidthRequest="150"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                Margin="0,0,0,20" />
+
+            <!-- Task List -->
+            <CollectionView
+                x:Name="TaskListView"
+                SelectionMode="None"
+                VerticalOptions="FillAndExpand"
+                Margin="0,0,0,20">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Task Title -->
+                            <Label
+                                Text="{Binding Title}"
+                                VerticalOptions="Center"
+                                TextColor="Black"
+                                TextDecorations="{Binding TextDecorations}" />
+
+                            <!-- Status Button -->
+                            <Button
+                                Text="{Binding Status}"
+                                Clicked="OnCompleteTask"
+                                Grid.Column="1"
+                                Margin="5" />
+
+                            <!-- Remove Button -->
+                            <Button
+                                Text="Remove"
+                                Clicked="OnRemoveTask"
+                                Grid.Column="2"
+                                BackgroundColor="Red"
+                                Margin="5" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Navigate to Weather Page -->
+            <Button
+                Text="Back to Weather"
+                Clicked="OnNavigateToWeather"
+                BackgroundColor="purple"
+                TextColor="White"
+                WidthRequest="150"
+                HeightRequest="50"
+                HorizontalOptions="Center" />
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

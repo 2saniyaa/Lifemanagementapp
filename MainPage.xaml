@@ -1,0 +1,105 @@
+﻿<ContentPage
+    x:Class="MauiApp1.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <!-- Background Image -->
+        <Image
+            Source="background.jpg"
+            Aspect="AspectFill"
+            IsOpaque="True"
+            ZIndex="-1" />
+
+        <StackLayout VerticalOptions="FillAndExpand" Padding="20">
+            <!-- Center-aligned search bar -->
+            <StackLayout VerticalOptions="Start" HorizontalOptions="Center" Padding="10,20,10,0">
+                <SearchBar
+                    x:Name="CityInputField"
+                    Placeholder="Search for a city..."
+                    BackgroundColor="White"
+                    WidthRequest="250"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,20" /> <!-- Add margin to create space below the SearchBar -->
+            </StackLayout>
+
+            <!-- Small Fetch Weather Button -->
+            <Button
+                Text="Fetch Forecast"
+                Clicked="OnFetchWeatherClicked"
+                BackgroundColor="Purple"
+                TextColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                WidthRequest="400"
+                HeightRequest="60"
+                Margin="0,10,0,10" />
+
+            <!-- Larger Weather Details Box -->
+            <Frame
+                BackgroundColor="#F0F8FF"
+                CornerRadius="15"
+                Padding="30"
+                Margin="20,20,20,20"
+                WidthRequest="500"
+                HeightRequest="400"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <StackLayout>
+                    <Label
+                        Text="Weather Details"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        TextColor="#000080"
+                        Margin="0,0,0,20" />
+
+                    <!-- Weather information labels -->
+                    <Label
+                        x:Name="CurrentTempLabel"
+                        Text="Current Temperature: °C"
+                        FontSize="18"
+                        TextColor="Black"
+                        Margin="0,5,0,5" />
+                    <Label
+                        x:Name="MinTempLabel"
+                        Text="Low Temperature: °C"
+                        FontSize="18"
+                        TextColor="Black"
+                        Margin="0,5,0,5" />
+                    <Label
+                        x:Name="MaxTempLabel"
+                        Text="High Temperature: °C"
+                        FontSize="18"
+                        TextColor="Black"
+                        Margin="0,5,0,5" />
+                    <Label
+                        x:Name="WeatherDescLabel"
+                        Text="Weather Outlook: "
+                        FontSize="18"
+                        TextColor="Black"
+                        Margin="0,5,0,5" />
+                    <Label
+                        x:Name="WindStatusLabel"
+                        Text="Wind Alert: "
+                        FontSize="18"
+                        TextColor="Black"
+                        Margin="0,5,0,5" />
+                </StackLayout>
+            </Frame>
+
+            <!-- Navigation Button to To-Do List -->
+            <Button
+                Text="Manage Tasks"
+                Clicked="OnNavigateToTasksPage"
+                BackgroundColor="Purple"
+                TextColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                WidthRequest="400"
+                HeightRequest="60"
+                Margin="0,10,0,10" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
